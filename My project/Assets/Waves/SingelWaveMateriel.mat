@@ -97,7 +97,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Amplitude1: 2
+    - _Amplitude1: 1.12
     - _Amplitude2: 0.14
     - _Amplitude3: 2
     - _Amplitude4: 1.4

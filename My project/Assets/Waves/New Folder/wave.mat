@@ -113,17 +113,22 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _amplitude1: 2
-    - _duration: 0
+    - _amplitude1: 7.75
+    - _amplitude1_1: 11.04
+    - _duration: 0.56
     - _position: 0
-    - _speed1: 2
+    - _speed1: 1.49
+    - _speed1_1: 1.21
     - _time: 0
-    - _wavelength1: 0
+    - _wavelength1: 0.25
+    - _wavelength1_1: 13.98
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _direction: {r: 1.79, g: 0, b: 0, a: 0}
+    - _direction_1: {r: 0.78, g: 0, b: 0.54, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2052199989743881612
 MonoBehaviour:
