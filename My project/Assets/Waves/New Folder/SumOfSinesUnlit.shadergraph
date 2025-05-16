@@ -55,9 +55,6 @@
             "m_Id": "1c57582eca00442498cd2a9b34989738"
         },
         {
-            "m_Id": "8f2deff9ed594078a5cfea1b3d8a53b7"
-        },
-        {
             "m_Id": "da53636afecd4b4e8911c59cdaf3580b"
         },
         {
@@ -2118,7 +2115,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 1.0,
+    "m_Value": 3.690000057220459,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -2271,7 +2268,7 @@
     "m_Value": {
         "x": 0.03999999910593033,
         "y": 0.0,
-        "z": 0.07999999821186066,
+        "z": -0.07999999821186066,
         "w": 0.0
     }
 }
@@ -2562,9 +2559,9 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "x": 0.05000000074505806,
+        "x": 0.5,
         "y": 0.0,
-        "z": 0.10000000149011612,
+        "z": 0.0,
         "w": 0.0
     }
 }
@@ -2898,7 +2895,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 1.0,
+    "m_Value": 2.0,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -3143,7 +3140,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 1.0,
+    "m_Value": 2.450000047683716,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -3507,7 +3504,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.5,
+    "m_Value": 0.23000000417232514,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -4911,9 +4908,6 @@
     "m_ChildObjectList": [
         {
             "m_Id": "799a090a90504b49ae7b5796cd1e0243"
-        },
-        {
-            "m_Id": "8f2deff9ed594078a5cfea1b3d8a53b7"
         }
     ]
 }
@@ -5704,7 +5698,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 1.0,
+    "m_Value": 0.5,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -6272,7 +6266,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 1.0,
+    "m_Value": 2.2300000190734865,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -6558,7 +6552,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 2.5199999809265138,
+    "m_Value": 2.0,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -6776,34 +6770,6 @@
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
-    }
-}
-
-{
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
-    "m_ObjectId": "8f2deff9ed594078a5cfea1b3d8a53b7",
-    "m_Guid": {
-        "m_GuidSerialized": "f8d52abd-4a3b-41bb-9b6d-9f89981b7628"
-    },
-    "m_Name": "inverter",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "inverter",
-    "m_DefaultReferenceName": "_inverter",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_DismissedVersion": 0,
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": -0.5,
-    "m_FloatType": 0,
-    "m_RangeValues": {
-        "x": 0.0,
-        "y": 1.0
     }
 }
 
@@ -7581,7 +7547,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.5,
+    "m_Value": 11.4399995803833,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -9075,7 +9041,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.0,
+    "m_Value": 0.20000000298023225,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -9819,7 +9785,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 1.0,
+    "m_Value": 4.800000190734863,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -10290,9 +10256,9 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "x": 0.10000000149011612,
+        "x": 0.5,
         "y": 0.0,
-        "z": 0.07999999821186066,
+        "z": 0.5,
         "w": 0.0
     }
 }
