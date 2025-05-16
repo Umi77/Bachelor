@@ -99,8 +99,8 @@ Material:
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Amplitude: 1
-    - _Amplitude1: 3
-    - _Amplitude2: 2
+    - _Amplitude1: 4
+    - _Amplitude2: 1
     - _Amplitude3: 2
     - _Amplitude4: 3
     - _Blend: 0
@@ -121,10 +121,10 @@ Material:
     - _GlossyReflections: 0
     - _Gravity: 9
     - _Metallic: 0
-    - _NeighbourSistance: 14.71
+    - _NeighbourSistance: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _Phase: 0
+    - _Phase: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -141,11 +141,11 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.1568627, g: 0.81748515, b: 0.9529412, a: 1}
     - _Direction: {r: 0.19, g: 0, b: 0, a: 0}
-    - _Direction1: {r: 0.14, g: 0, b: 0, a: 0}
-    - _Direction2: {r: -0.08, g: 0, b: 0.1, a: 0}
-    - _Direction3: {r: 0.01, g: 0, b: 0, a: 0}
-    - _Direction4: {r: 0, g: 0, b: -0.08, a: 0}
-    - _Duration: {r: 1, g: 2, b: 1, a: 3}
+    - _Direction1: {r: 0.05, g: 0, b: 0.07, a: 0}
+    - _Direction2: {r: 0.1, g: 0, b: 0.06, a: 0}
+    - _Direction3: {r: 0.04, g: 0, b: 0.08, a: 0}
+    - _Direction4: {r: 0.04, g: 0, b: 0.21, a: 0}
+    - _Duration: {r: 1.22, g: 4, b: 1, a: 3}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _TimeScales: {r: 0.41, g: 0.36, b: 0.84, a: 0.39}

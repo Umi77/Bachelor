@@ -84,6 +84,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
+    - _Ambient_Occlusion: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -100,12 +101,13 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
+    - _NeighbourDistance: 0.01
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.5
+    - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -113,34 +115,34 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _amplitude1: 1.29
+    - _amplitude1: 6.7
     - _amplitude1_1: 11.04
-    - _amplitude2: 1.27
-    - _amplitude3: 0.5
-    - _amplitude4: 0.25
-    - _duration: 1.33
+    - _amplitude2: 4.67
+    - _amplitude3: 2.9
+    - _amplitude4: 5.55
+    - _duration: 1
     - _position: 0
-    - _speed1: 0.07
+    - _speed1: 0.5
     - _speed1_1: 1.21
-    - _speed2: 0.31
-    - _speed3: 1.46
-    - _speed4: 0.12
+    - _speed2: 0.7
+    - _speed3: 1.32
+    - _speed4: 0.73
     - _time: 0
-    - _wavelength1: 0.83
+    - _wavelength1: 1
     - _wavelength1_1: 13.98
-    - _wavelength2: 0.49
-    - _wavelength3: 0.62
-    - _wavelength4: 3.85
+    - _wavelength2: 3
+    - _wavelength3: 1
+    - _wavelength4: 3
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _direction: {r: 1.79, g: 0, b: 0, a: 0}
-    - _direction1: {r: 0.37, g: 0, b: 1.47, a: 0}
-    - _direction2: {r: 0.05, g: 0, b: 0.06, a: 0}
-    - _direction3: {r: -0.83, g: 0, b: -1.26, a: 0}
-    - _direction4: {r: -7.88, g: 0, b: -1.39, a: 0}
+    - _direction1: {r: 0.05, g: 0, b: 0.07, a: 0}
+    - _direction2: {r: 0.1, g: 0, b: 0.06, a: 0}
+    - _direction3: {r: 0.04, g: 0, b: 0.08, a: 0}
+    - _direction4: {r: 0.04, g: 0, b: 0.21, a: 0}
     - _direction_1: {r: 0.78, g: 0, b: 0.54, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2052199989743881612
