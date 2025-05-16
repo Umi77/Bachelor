@@ -115,11 +115,11 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _amplitude1: 6.7
+    - _amplitude1: 1.52
     - _amplitude1_1: 11.04
-    - _amplitude2: 4.67
-    - _amplitude3: 2.9
-    - _amplitude4: 5.55
+    - _amplitude2: 2.71
+    - _amplitude3: 3.4
+    - _amplitude4: 4.61
     - _duration: 1
     - _position: 0
     - _speed1: 0.5
@@ -128,11 +128,11 @@ Material:
     - _speed3: 1.32
     - _speed4: 0.73
     - _time: 0
-    - _wavelength1: 1
+    - _wavelength1: 0.5
     - _wavelength1_1: 13.98
-    - _wavelength2: 3
-    - _wavelength3: 1
-    - _wavelength4: 3
+    - _wavelength2: 0.5
+    - _wavelength3: 0.5
+    - _wavelength4: 0.5
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
