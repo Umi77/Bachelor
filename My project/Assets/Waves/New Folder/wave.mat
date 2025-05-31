@@ -84,7 +84,9 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
+    - _Ambient: 0
     - _Ambient_Occlusion: 0
+    - _Amplitude_Amplifier: 0.999
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -94,6 +96,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _Diffuse: 0
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
@@ -104,31 +107,37 @@ Material:
     - _NeighbourDistance: 0.01
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _Power: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
+    - _Specular: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
+    - _Sun: 0
     - _Surface: 0
+    - _Wavelength_Amplifier: 2.44
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _amplitude1: 1.52
+    - _amplitude1: 63.22
     - _amplitude1_1: 11.04
     - _amplitude2: 2.71
     - _amplitude3: 3.4
     - _amplitude4: 4.61
-    - _duration: 1
+    - _duration: 2.97
     - _position: 0
-    - _speed1: 0.5
+    - _speed1: 2.36
     - _speed1_1: 1.21
     - _speed2: 0.7
     - _speed3: 1.32
     - _speed4: 0.73
+    - _speed5: 1.5
+    - _speed6: 1.5
     - _time: 0
-    - _wavelength1: 0.5
+    - _wavelength1: 3.47
     - _wavelength1_1: 13.98
     - _wavelength2: 0.5
     - _wavelength3: 0.5
@@ -143,6 +152,8 @@ Material:
     - _direction2: {r: 0.1, g: 0, b: 0.06, a: 0}
     - _direction3: {r: 0.04, g: 0, b: 0.08, a: 0}
     - _direction4: {r: 0.04, g: 0, b: 0.21, a: 0}
+    - _direction5: {r: 1, g: 0, b: 0, a: 0}
+    - _direction6: {r: 1, g: 0, b: 0, a: 0}
     - _direction_1: {r: 0.78, g: 0, b: 0.54, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2052199989743881612
