@@ -64,6 +64,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleCubemap_78fafd56a1684c6c9ee9dc97eb29878a_Cube_1_Cubemap:
+        m_Texture: {fileID: 8900000, guid: a3de28b69b48944438c87668bd722ae7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Skybox:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -89,7 +97,7 @@ Material:
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Ambient: 1
-    - _Amplitude: 2.5
+    - _Amplitude: 16.53
     - _Amplitude_1: -0.6
     - _Amplitude_2: 2
     - _Amplitude_3: 1.7
@@ -127,16 +135,16 @@ Material:
     - _SpecNormalStrength: 0.1
     - _Specular: 0.53
     - _SpecularHighlights: 1
-    - _Speed: 9.2
-    - _Speed_1: 7.88
-    - _Speed_2: 0.25
+    - _Speed: 1.91
+    - _Speed_1: 2.88
+    - _Speed_2: 0.94
     - _Speed_3: 0.54
     - _Speed_4: 0.59
     - _Speed_5: 0.5
     - _Speed_6: 0.27
     - _Speed_7: 0.26
     - _Speed_8: 2
-    - _Speed_9: 0.53
+    - _Speed_9: 1.53
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
@@ -164,7 +172,7 @@ Material:
     - _Direction_8: {r: -0.15, g: 0, b: 0.06, a: 0}
     - _Direction_9: {r: 2.02, g: 0, b: -0.08, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LightColor: {r: 1, g: 0.98863906, b: 0.7688679, a: 0}
+    - _LightColor: {r: 1, g: 0.8001374, b: 0.76862746, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Specular_Reflectance: {r: 0.8000001, g: 0.92549026, b: 1, a: 0}
     - _Sun: {r: 1.34, g: 22.88, b: 2.84, a: 0}
