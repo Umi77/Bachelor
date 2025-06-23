@@ -65,11 +65,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleCubemap_78fafd56a1684c6c9ee9dc97eb29878a_Cube_1_Cubemap:
-        m_Texture: {fileID: 8900000, guid: a3de28b69b48944438c87668bd722ae7, type: 3}
+        m_Texture: {fileID: 8900000, guid: 6e998e53d0a82bb45928cd08a0fcfff3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Skybox:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 8900000, guid: a3de28b69b48944438c87668bd722ae7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -97,7 +97,7 @@ Material:
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Ambient: 1
-    - _Amplitude: 16.53
+    - _Amplitude: 16.54
     - _Amplitude_1: -0.6
     - _Amplitude_2: 2
     - _Amplitude_3: 1.7
@@ -136,6 +136,16 @@ Material:
     - _Specular: 0.53
     - _SpecularHighlights: 1
     - _Speed: 1.91
+    - _Speed0: 1.91
+    - _Speed1: 2.88
+    - _Speed2: 0.94
+    - _Speed3: 0.54
+    - _Speed4: 0.59
+    - _Speed5: 0.5
+    - _Speed6: 0.27
+    - _Speed7: 0.26
+    - _Speed8: 2
+    - _Speed9: 1.53
     - _Speed_1: 2.88
     - _Speed_2: 0.94
     - _Speed_3: 0.54
@@ -161,7 +171,17 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Direction: {r: -0.08, g: 0, b: 0.52, a: 0}
+    - _Direction: {r: -2.02, g: 0, b: -0.08, a: 0}
+    - _Direction0: {r: -0.08, g: 0, b: 0.52, a: 0}
+    - _Direction1: {r: -0.53, g: 0, b: 0.84, a: 0}
+    - _Direction2: {r: -0.1, g: 0, b: 0.14, a: 0}
+    - _Direction3: {r: 0.04, g: 0, b: -0.99, a: 0}
+    - _Direction4: {r: 0.99, g: 0, b: -0.07, a: 0}
+    - _Direction5: {r: -0.85, g: 0, b: -1.19, a: 0}
+    - _Direction6: {r: 0.36, g: 0, b: -0.08, a: 0}
+    - _Direction7: {r: -0.23, g: 0, b: -0.04, a: 0}
+    - _Direction8: {r: -0.15, g: 0, b: 0.06, a: 0}
+    - _Direction9: {r: 2.02, g: 0, b: -0.08, a: 0}
     - _Direction_1: {r: -0.53, g: 0, b: 0.84, a: 0}
     - _Direction_2: {r: -0.1, g: 0, b: 0.14, a: 0}
     - _Direction_3: {r: 0.04, g: 0, b: -0.99, a: 0}

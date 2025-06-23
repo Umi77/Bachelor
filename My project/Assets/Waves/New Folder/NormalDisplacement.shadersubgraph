@@ -298,7 +298,7 @@
                 "m_Node": {
                     "m_Id": "fbfb8582813649199ec2c350e17c3d37"
                 },
-                "m_SlotId": 0
+                "m_SlotId": 1
             }
         },
         {
@@ -340,7 +340,7 @@
                 "m_Node": {
                     "m_Id": "fbfb8582813649199ec2c350e17c3d37"
                 },
-                "m_SlotId": 1
+                "m_SlotId": 0
             }
         },
         {
@@ -3340,8 +3340,8 @@
     "m_ObjectId": "c7d538aff3344c57b026aa9e4d4e6e88",
     "m_Title": "frequency",
     "m_Position": {
-        "x": 205.0001220703125,
-        "y": -119.0
+        "x": 205.0,
+        "y": -118.99996948242188
     }
 }
 
@@ -3474,7 +3474,7 @@
     "m_ObjectId": "d5c8ccd3e5f846068ce94ca1df45c856",
     "m_Title": "frequency",
     "m_Position": {
-        "x": -1252.0,
+        "x": -1251.999755859375,
         "y": -176.0
     }
 }

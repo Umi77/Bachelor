@@ -1,0 +1,123 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+
+#define ARRAY_LENGTH 10
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+RWTexture2D<float4> Result;
+float _Time;
+float _DeltaTime;
+
+float3 _Direction[10];
+float3 _Position;
+float1 _Speed[10];
+float1 _Duration;
+float1 _Amplitude;
+float1 _AmplitudeAmplifier;
+float1 _Wavelength;
+float1 _WavelengthAmplifier;
+bool debug;
+
+RWStructuredBuffer<float> debugBuffer; 
+
+struct SinewaveDisplacement
+{
+    float3 _Position;
+    float3 normal;
+};
+
+// frequency
+float1 Frequenzy()
+{
+    return 2.0 / _Wavelength;
+}
+
+// Phase-constant function
+float1 PhaseConstant(float1 currSpeed)
+{
+    return 2.0 / _Wavelength * currSpeed;
+}
+
+float1 PhaseMulTime(float1 time, float1 currSpeed)
+{
+    return time * _Duration * PhaseConstant(currSpeed);
+}
+
+float2 NormalDisplacement(float1 phaseMulTime, float3 currDirection, uint3 id)
+{
+    float1 displacementX = Frequenzy() * _Position.x;
+    float1 displacementZ = Frequenzy() * _Position.z;
+    
+    displacementX = cos(phaseMulTime + displacementX) * currDirection.x * _Amplitude * Frequenzy();
+    displacementZ = cos(phaseMulTime + displacementZ) * currDirection.z * _Amplitude * Frequenzy();
+    
+    return float2(displacementX, displacementZ);
+}
+
+// Calculation for one Sinewave
+SinewaveDisplacement SinewaveCalculation(float3 newPosition, float3 currDirection, float1 currSpeed, float1 currAmplitude, float1 currWavelength, uint3 id)
+{
+    SinewaveDisplacement sd;
+    float1 phaseMulTime = PhaseMulTime(_Time, currSpeed);
+    float1 sinePosition = sin(Frequenzy() * dot(currDirection, newPosition) + phaseMulTime);
+    sinePosition = exp(sinePosition - 1.0) * _Amplitude;
+    sd._Position = float3(0.0, sinePosition, 0.0);
+    
+    // float2 nd = NormalDisplacement(phaseMulTime, currDirection);
+    // float3 XAlignedNormal = float3(1, nd[0], 0);
+    // float3 YAlignedNormal = float3(0, nd[1], 1);
+    // sd.normal = normalize(cross(XAlignedNormal, YAlignedNormal));
+    return sd;
+}
+
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    SinewaveDisplacement sd;
+    float1 brownianAmplitude = _Amplitude;
+    float1 brownianWavelength = _Wavelength;
+    if (Result[id.xy].b == 0)
+    {
+        _Position = float3(id.x, Result[id.xy].r, id.y);
+    }
+    else
+    {
+        _Position = float3(id.x, Result[id.xy].b, id.y);
+    }
+    
+    //Loop through all singular waves to add them all up
+    for (uint i; i < ARRAY_LENGTH; i++)
+    {
+        //Calculation of the normal displacement from previous wave to perform dimonsion shift
+        float1 phaseMulTime = PhaseMulTime(_Time - _DeltaTime, _Speed[i]);
+        float2 prevNormalDisp = NormalDisplacement(phaseMulTime, _Direction[i], id);
+        float3 newPosition = float3(_Position.x + prevNormalDisp[0], _Position.y, _Position.z + prevNormalDisp[1]);
+        
+        // Get new displacements and add them to the sum
+        SinewaveDisplacement newSD = SinewaveCalculation(newPosition, _Direction[i], _Speed[i], brownianAmplitude, brownianWavelength, id);
+        //sd.normal += newSD.normal;
+        sd._Position += newSD._Position;
+        if (id.x == 20 && id.y == 20)
+        {
+            debugBuffer[0] = SinewaveCalculation(newPosition, _Direction[i], _Speed[i], brownianAmplitude, brownianWavelength, id);
+        }
+        // Create smaller wavepeaks for details
+        brownianAmplitude *= _AmplitudeAmplifier;
+        brownianWavelength *= _WavelengthAmplifier;
+    }
+    
+    float4 color;
+    float1 intensity = sd._Position.y * 10;
+    
+    if (id.x < 175)
+    {
+        color = float4(0, 0, intensity, 255);
+    }
+    else
+    {
+        color = float4(intensity, 0, 0, 255);
+    }
+    
+    Result[id.xy] = color;
+}

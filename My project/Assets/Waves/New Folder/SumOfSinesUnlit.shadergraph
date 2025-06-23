@@ -425,6 +425,9 @@
         },
         {
             "m_Id": "77a107e93cfa4cdb86845c140f1556d1"
+        },
+        {
+            "m_Id": "f607d79e50824c669a0c520db97101bc"
         }
     ],
     "m_GroupDatas": [
@@ -2038,6 +2041,20 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+                    "m_Id": "f607d79e50824c669a0c520db97101bc"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "78fafd56a1684c6c9ee9dc97eb29878a"
+                },
+                "m_SlotId": 1
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
                     "m_Id": "f68ecf0886624e6e8023b32a6ea81ec4"
                 },
                 "m_SlotId": 0
@@ -2128,7 +2145,7 @@
         "preventRotation": false
     },
     "m_Path": "Shader Graphs",
-    "m_GraphPrecision": 1,
+    "m_GraphPrecision": 2,
     "m_PreviewMode": 2,
     "m_OutputNode": {
         "m_Id": ""
@@ -2453,7 +2470,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
     "m_ObjectId": "0995e9bc7b27408cbd93071edf14af88",
     "m_Id": 0,
-    "m_DisplayName": "Direction (6)",
+    "m_DisplayName": "Direction6",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -2666,10 +2683,10 @@
     "m_Guid": {
         "m_GuidSerialized": "ea9d8cda-0a5f-454d-b51e-b50e5430c2f4"
     },
-    "m_Name": "Direction (2)",
+    "m_Name": "Direction2",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Direction (2)",
-    "m_DefaultReferenceName": "_Direction_2",
+    "m_RefNameGeneratedByDisplayName": "Direction2",
+    "m_DefaultReferenceName": "_Direction2",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -3026,7 +3043,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
     "m_ObjectId": "1b454b36194a475b99d0b2258c16a643",
     "m_Id": 0,
-    "m_DisplayName": "Direction (4)",
+    "m_DisplayName": "Direction4",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -3116,10 +3133,10 @@
     "m_Guid": {
         "m_GuidSerialized": "0b7b65ad-83be-44ed-8256-9947bdb6a0fc"
     },
-    "m_Name": "Direction",
+    "m_Name": "Direction0",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Direction",
-    "m_DefaultReferenceName": "_Direction",
+    "m_RefNameGeneratedByDisplayName": "Direction0",
+    "m_DefaultReferenceName": "_Direction0",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -3336,7 +3353,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "24fa76b66ce0410d9a1f64bf17e81fe9",
     "m_Id": 0,
-    "m_DisplayName": "Ambient",
+    "m_DisplayName": "_Ambient",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -3352,7 +3369,7 @@
     "m_ObjectId": "2570f3a6154847f98ab454366e8761a8",
     "m_Title": "Space Refrlection",
     "m_Position": {
-        "x": -313.0000305175781,
+        "x": -313.0,
         "y": 2467.0
     }
 }
@@ -3406,7 +3423,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
     "m_ObjectId": "269e00e74d974ffbaa300cb7fa4e2421",
     "m_Id": 0,
-    "m_DisplayName": "Direction (9)",
+    "m_DisplayName": "Direction9",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -3501,10 +3518,10 @@
     "m_Guid": {
         "m_GuidSerialized": "2153dfbd-cdd1-4987-a7c0-cdf6dc6419c9"
     },
-    "m_Name": "Speed (1)",
+    "m_Name": "Speed1",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Speed (1)",
-    "m_DefaultReferenceName": "_Speed_1",
+    "m_RefNameGeneratedByDisplayName": "Speed1",
+    "m_DefaultReferenceName": "_Speed1",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -3557,7 +3574,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "2b072bd19a414270a91de492dd41f388",
     "m_Id": 0,
-    "m_DisplayName": "Speed",
+    "m_DisplayName": "Speed0",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -3777,7 +3794,7 @@
     "m_ObjectId": "2dc5655cf06a44949093d1885828382d",
     "m_Title": "Lambertion Diffuse",
     "m_Position": {
-        "x": 12.999967575073243,
+        "x": 13.0,
         "y": 773.0
     }
 }
@@ -4050,10 +4067,10 @@
     "m_Guid": {
         "m_GuidSerialized": "70e839ea-deed-4f34-b233-a93135d3cc08"
     },
-    "m_Name": "Speed (2)",
+    "m_Name": "Speed2",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Speed (2)",
-    "m_DefaultReferenceName": "_Speed_2",
+    "m_RefNameGeneratedByDisplayName": "Speed2",
+    "m_DefaultReferenceName": "_Speed2",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -4216,7 +4233,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
     "m_ObjectId": "3a9689829e8b469084f1589353d8ec31",
     "m_Id": 0,
-    "m_DisplayName": "Direction",
+    "m_DisplayName": "Direction0",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -4479,7 +4496,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "4543bb7375084e0b8a36e8b351761d7a",
     "m_Id": 0,
-    "m_DisplayName": "Speed (2)",
+    "m_DisplayName": "Speed2",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -4753,7 +4770,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
     "m_ObjectId": "4998045b50234a958fa2c62288e2728a",
     "m_Id": 0,
-    "m_DisplayName": "Direction (2)",
+    "m_DisplayName": "Direction2",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -4886,10 +4903,10 @@
     "m_Guid": {
         "m_GuidSerialized": "837843e4-6291-4da5-bfd1-e7a0d6cc5cd6"
     },
-    "m_Name": "Speed (8)",
+    "m_Name": "Speed8",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Speed (8)",
-    "m_DefaultReferenceName": "_Speed_8",
+    "m_RefNameGeneratedByDisplayName": "Speed8",
+    "m_DefaultReferenceName": "_Speed8",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -5181,7 +5198,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "53408bd759ea49838ea21f6fd7cc60dd",
     "m_Id": 0,
-    "m_DisplayName": "Speed (9)",
+    "m_DisplayName": "Speed9",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -5650,7 +5667,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "5a6a2ee440b04383a985f4b83da99999",
     "m_Id": 0,
-    "m_DisplayName": "Speed (6)",
+    "m_DisplayName": "Speed6",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -6744,7 +6761,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
     "m_ObjectId": "75ea47d1cd5449e98e81c6d2129a0d85",
     "m_Id": 0,
-    "m_DisplayName": "Direction (8)",
+    "m_DisplayName": "Direction8",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -6769,10 +6786,10 @@
     "m_Guid": {
         "m_GuidSerialized": "5de4eab5-8962-47f4-b044-c87ab858f3bf"
     },
-    "m_Name": "Speed (4)",
+    "m_Name": "Speed4",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Speed (4)",
-    "m_DefaultReferenceName": "_Speed_4",
+    "m_RefNameGeneratedByDisplayName": "Speed4",
+    "m_DefaultReferenceName": "_Speed4",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -6916,7 +6933,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "LOD",
     "m_StageCapability": 3,
-    "m_Value": 0.0,
+    "m_Value": 6.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
 }
@@ -6926,7 +6943,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "79e2373814ec4d18bd93741adf1e32f9",
     "m_Id": 0,
-    "m_DisplayName": "Speed (3)",
+    "m_DisplayName": "Speed3",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -7004,7 +7021,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "7ac1ff8e738e40aea86887fab405c48a",
     "m_Id": 0,
-    "m_DisplayName": "Speed (4)",
+    "m_DisplayName": "Speed4",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -7045,10 +7062,10 @@
     "m_Guid": {
         "m_GuidSerialized": "966b45c4-7e7c-47c2-be91-6fbc8375d9d5"
     },
-    "m_Name": "Speed (5)",
+    "m_Name": "Speed5",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Speed (5)",
-    "m_DefaultReferenceName": "_Speed_5",
+    "m_RefNameGeneratedByDisplayName": "Speed5",
+    "m_DefaultReferenceName": "_Speed5",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -7162,7 +7179,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "7e3be538dd244b3d8d7eea14bb21c25e",
     "m_Id": 0,
-    "m_DisplayName": "Speed (7)",
+    "m_DisplayName": "Speed7",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -7836,10 +7853,10 @@
     "m_Guid": {
         "m_GuidSerialized": "f3ac78c6-def9-4d49-bc50-4657fdd8f9ea"
     },
-    "m_Name": "Direction (4)",
+    "m_Name": "Direction4",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Direction (4)",
-    "m_DefaultReferenceName": "_Direction_4",
+    "m_RefNameGeneratedByDisplayName": "Direction4",
+    "m_DefaultReferenceName": "_Direction4",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -8745,10 +8762,10 @@
     "m_Guid": {
         "m_GuidSerialized": "017c6911-a841-48ca-ba98-8d10ee346e03"
     },
-    "m_Name": "Direction (3)",
+    "m_Name": "Direction3",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Direction (3)",
-    "m_DefaultReferenceName": "_Direction_3",
+    "m_RefNameGeneratedByDisplayName": "Direction3",
+    "m_DefaultReferenceName": "_Direction3",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -9069,7 +9086,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
     "m_ObjectId": "a0f5b17a0ac243da8b4b77620bf68b31",
     "m_Id": 0,
-    "m_DisplayName": "Direction (3)",
+    "m_DisplayName": "Direction3",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -9135,7 +9152,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "a154978bcabe415b83cc00278f381384",
     "m_Id": 0,
-    "m_DisplayName": "Speed (1)",
+    "m_DisplayName": "Speed1",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -9152,10 +9169,10 @@
     "m_Guid": {
         "m_GuidSerialized": "2702b6e0-d8a4-4124-b70b-2bc7107182bf"
     },
-    "m_Name": "Speed (9)",
+    "m_Name": "Speed9",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Speed (9)",
-    "m_DefaultReferenceName": "_Speed_9",
+    "m_RefNameGeneratedByDisplayName": "Speed9",
+    "m_DefaultReferenceName": "_Speed9",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -9413,7 +9430,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "a8eff99e7c1b4b52ba25fe4b99838f53",
     "m_Id": 0,
-    "m_DisplayName": "Speed (8)",
+    "m_DisplayName": "Speed8",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -9505,7 +9522,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Cubemap": {
-        "m_SerializedCubemap": "{\"cubemap\":{\"fileID\":8900000,\"guid\":\"a3de28b69b48944438c87668bd722ae7\",\"type\":3}}",
+        "m_SerializedCubemap": "{\"cubemap\":{\"fileID\":8900000,\"guid\":\"6e998e53d0a82bb45928cd08a0fcfff3\",\"type\":3}}",
         "m_Guid": ""
     }
 }
@@ -9882,7 +9899,7 @@
     "m_ObjectId": "b59245f0cc49401ea9274496320144e6",
     "m_Title": "Ambient Lighting",
     "m_Position": {
-        "x": 1093.0001220703125,
+        "x": 1093.0,
         "y": 426.0
     }
 }
@@ -10318,10 +10335,10 @@
     "m_Guid": {
         "m_GuidSerialized": "608734af-b955-4df3-b8bc-4674147c1e13"
     },
-    "m_Name": "Speed (3)",
+    "m_Name": "Speed3",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Speed (3)",
-    "m_DefaultReferenceName": "_Speed_3",
+    "m_RefNameGeneratedByDisplayName": "Speed3",
+    "m_DefaultReferenceName": "_Speed3",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -10431,7 +10448,7 @@
     "m_ObjectId": "c0b030b1d3974892a1521a412f04dd84",
     "m_Title": "Schlick Fresnel",
     "m_Position": {
-        "x": -61.000152587890628,
+        "x": -61.0,
         "y": 1299.0
     }
 }
@@ -10503,10 +10520,10 @@
     "m_Guid": {
         "m_GuidSerialized": "29b16dbc-91af-4c9d-8e4b-0ffe4388d20e"
     },
-    "m_Name": "Direction (5)",
+    "m_Name": "Direction5",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Direction (5)",
-    "m_DefaultReferenceName": "_Direction_5",
+    "m_RefNameGeneratedByDisplayName": "Direction5",
+    "m_DefaultReferenceName": "_Direction5",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -10662,7 +10679,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
     "m_ObjectId": "c987bfb4dea443b1b83c3d33d188b0b8",
     "m_Id": 0,
-    "m_DisplayName": "Direction (5)",
+    "m_DisplayName": "Direction5",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -10685,7 +10702,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
     "m_ObjectId": "c99cf89025654651af82e664ba130c2b",
     "m_Id": 0,
-    "m_DisplayName": "Direction (7)",
+    "m_DisplayName": "Direction7",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -10771,10 +10788,10 @@
     "m_Guid": {
         "m_GuidSerialized": "63793938-660f-4b8f-a848-aca25c9b0c6b"
     },
-    "m_Name": "Direction (6)",
+    "m_Name": "Direction6",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Direction (6)",
-    "m_DefaultReferenceName": "_Direction_6",
+    "m_RefNameGeneratedByDisplayName": "Direction6",
+    "m_DefaultReferenceName": "_Direction6",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -10878,7 +10895,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "cf826842a9be4118802c3450850049ea",
     "m_Id": 0,
-    "m_DisplayName": "Speed (5)",
+    "m_DisplayName": "Speed5",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -11322,10 +11339,10 @@
     "m_Guid": {
         "m_GuidSerialized": "473b54d0-35d9-43ed-abd2-989ec4b0b978"
     },
-    "m_Name": "Direction (8)",
+    "m_Name": "Direction8",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Direction (8)",
-    "m_DefaultReferenceName": "_Direction_8",
+    "m_RefNameGeneratedByDisplayName": "Direction8",
+    "m_DefaultReferenceName": "_Direction8",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -11418,9 +11435,9 @@
     "m_Guid": {
         "m_GuidSerialized": "5a786511-74ce-497e-8f04-e6fd2bd94c4a"
     },
-    "m_Name": "Ambient",
+    "m_Name": "_Ambient",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Ambient",
+    "m_RefNameGeneratedByDisplayName": "_Ambient",
     "m_DefaultReferenceName": "_Ambient",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
@@ -11532,6 +11549,19 @@
         "z": 0.0
     },
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.CubemapMaterialSlot",
+    "m_ObjectId": "ddcfa5c4d1c04c19974a1c8d94e1fd59",
+    "m_Id": 0,
+    "m_DisplayName": "Skybox",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_BareResource": false
 }
 
 {
@@ -11747,10 +11777,10 @@
     "m_Guid": {
         "m_GuidSerialized": "9db2a0d4-1dea-40d5-a62c-9cee7a6dd2b0"
     },
-    "m_Name": "Direction (7)",
+    "m_Name": "Direction7",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Direction (7)",
-    "m_DefaultReferenceName": "_Direction_7",
+    "m_RefNameGeneratedByDisplayName": "Direction7",
+    "m_DefaultReferenceName": "_Direction7",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -12005,10 +12035,10 @@
     "m_Guid": {
         "m_GuidSerialized": "184ca129-ece1-41c4-9cd3-20dd2166b1ef"
     },
-    "m_Name": "Speed (7)",
+    "m_Name": "Speed7",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Speed (7)",
-    "m_DefaultReferenceName": "_Speed_7",
+    "m_RefNameGeneratedByDisplayName": "Speed7",
+    "m_DefaultReferenceName": "_Speed7",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -12143,10 +12173,10 @@
     "m_Guid": {
         "m_GuidSerialized": "d064bafa-2a06-4a3d-90c4-d9da911fdbf4"
     },
-    "m_Name": "Speed",
+    "m_Name": "Speed0",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Speed",
-    "m_DefaultReferenceName": "_Speed",
+    "m_RefNameGeneratedByDisplayName": "Speed0",
+    "m_DefaultReferenceName": "_Speed0",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -12519,10 +12549,10 @@
     "m_Guid": {
         "m_GuidSerialized": "143a644c-92c0-4628-becb-90e011967837"
     },
-    "m_Name": "Direction (9)",
+    "m_Name": "Direction9",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Direction (9)",
-    "m_DefaultReferenceName": "_Direction_9",
+    "m_RefNameGeneratedByDisplayName": "Direction9",
+    "m_DefaultReferenceName": "_Direction9",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -12547,10 +12577,10 @@
     "m_Guid": {
         "m_GuidSerialized": "0a279ea1-86ea-4d64-8048-214b2397e056"
     },
-    "m_Name": "Speed (6)",
+    "m_Name": "Speed6",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Speed (6)",
-    "m_DefaultReferenceName": "_Speed_6",
+    "m_RefNameGeneratedByDisplayName": "Speed6",
+    "m_DefaultReferenceName": "_Speed6",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -12798,7 +12828,7 @@
     "m_ObjectId": "f23c144ab7cb434aa5cdc49c73c3d0aa",
     "m_Title": "Blinn Phong Specular",
     "m_Position": {
-        "x": -254.00003051757813,
+        "x": -254.0,
         "y": 1650.0
     }
 }
@@ -12896,6 +12926,42 @@
         "z": 0.0
     },
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "f607d79e50824c669a0c520db97101bc",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 1794.0,
+            "y": 2553.0,
+            "width": 117.0,
+            "height": 34.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "ddcfa5c4d1c04c19974a1c8d94e1fd59"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "bcf6b94f9e994176a3af90fdd0f52466"
+    }
 }
 
 {
@@ -13010,7 +13076,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
     "m_ObjectId": "f7e343ed69764a93b264c646c4615376",
     "m_Id": 0,
-    "m_DisplayName": "Direction (1)",
+    "m_DisplayName": "Direction1",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -13335,10 +13401,10 @@
     "m_Guid": {
         "m_GuidSerialized": "38fe58a1-ade4-488a-b6e8-6b18883f1024"
     },
-    "m_Name": "Direction (1)",
+    "m_Name": "Direction1",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Direction (1)",
-    "m_DefaultReferenceName": "_Direction_1",
+    "m_RefNameGeneratedByDisplayName": "Direction1",
+    "m_DefaultReferenceName": "_Direction1",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
