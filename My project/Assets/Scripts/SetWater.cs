@@ -15,7 +15,7 @@ public class SetWater : MonoBehaviour
         new KeyValuePair<string, float>("_AmplitudeAmplifier", 0.89f),
         new KeyValuePair<string, float>("_WavelengthAmplifier", 1.17f),
         new KeyValuePair<string, float>("_SpecNormalStrength", 0.1f),
-        new KeyValuePair<string, float>("_Amplitude", 16.54f),
+        new KeyValuePair<string, float>("_Amplitude", 19.4f),
         new KeyValuePair<string, float>("_Wavelength", 23.27f),
         new KeyValuePair<string, float>("_Shininess", 17.4f),
         new KeyValuePair<string, float>("_Ambient", 1.0f),
@@ -24,12 +24,12 @@ public class SetWater : MonoBehaviour
     };
     public float[] arrSpeed = new float[] 
         { 
-            1.91f, 
-            2.88f, 
-            0.94f, 
-            0.54f, 
-            0.59f, 
-            0.5f, 
+            4.91f, 
+            3.88f, 
+            2.14f, 
+            2.54f, 
+            1.59f, 
+            2.05f, 
             0.27f, 
             0.26f, 
             2f, 
@@ -64,27 +64,52 @@ public class SetWater : MonoBehaviour
     {
         return pairs;
     }
+
+    public void SetupShader (Material material)
+    {
+        int count = 0;
+        foreach (float speed in arrSpeed)
+        {
+            material.SetFloat("_Speed" + count.ToString(), speed);
+            count++;
+        }
+        count = 0;
+        foreach (Vector3 direction in arrDirection)
+        {
+            material.SetVector("_Direction" + count.ToString(), direction);
+            count++;
+        }
+        foreach (KeyValuePair<string, float> pair in pairs)
+        {
+            material.SetFloat(pair.Key, pair.Value);
+        }
+    }
+
+    public void SetupShader (ComputeShader computeShader)
+    {
+        int count = 0;
+        foreach (float speed in arrSpeed)
+        {
+            computeShader.SetFloat("_Speed" + count.ToString(), speed);
+            count++;
+        }
+        count = 0;
+        foreach (Vector3 direction in arrDirection)
+        {
+            computeShader.SetVector("_Direction" + count.ToString(), direction);
+            count++;
+        }
+        foreach (KeyValuePair<string, float> pair in pairs)
+        {
+            computeShader.SetFloat(pair.Key, pair.Value);
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
         if (ocean != null)
         {
-            int count = 0;
-            foreach (float speed in arrSpeed)
-            {
-                ocean.SetFloat("_Speed" + count.ToString(), speed);
-                count++;
-            }
-            count = 0;
-            foreach (Vector3 direction in arrDirection)
-            {
-                ocean.SetVector("_Direction" + count.ToString(), direction);
-                count++;
-            }
-            foreach (KeyValuePair<string, float> pair in pairs)
-            {
-                ocean.SetFloat(pair.Key, pair.Value);
-            }
+            SetupShader (ocean);
         }
     }
 

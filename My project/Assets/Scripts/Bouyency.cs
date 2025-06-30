@@ -68,13 +68,14 @@ public class Bouyency : MonoBehaviour
 
     private void SetupCalculations(SetWater setWater)
     {
-        KeyValuePair<string, float>[] pairs =  setWater.GetPairs();
-        foreach (KeyValuePair<string, float> pair in pairs)
-        {
-            computeShader.SetFloat(pair.Key, pair.Value);
-        }
-        computeShader.SetFloats("_Speed", setWater.GetSpeed());
-        computeShader.SetVectorArray("_Direction", setWater.GetDirections());
+        setWater.SetupShader(computeShader);
+        //KeyValuePair<string, float>[] pairs =  setWater.GetPairs();
+        //foreach (KeyValuePair<string, float> pair in pairs)
+        //{
+        //    computeShader.SetFloat(pair.Key, pair.Value);
+        //}
+        //computeShader.SetFloats("_Speed", setWater.GetSpeed());
+        //computeShader.SetVectorArray("_Direction", setWater.GetDirections());
     }
     private void Update()
     {
