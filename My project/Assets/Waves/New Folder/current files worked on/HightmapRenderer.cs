@@ -72,17 +72,16 @@ public class HeightmapRenderer : ScriptableRendererFeature
     private HeightmapRenderPass pass;
     private RenderTexture heightRT;
 
-    HeightmapRenderPass m_ScriptablePass;
-
+    //Initializes the Feature before the first frame
     public override void Create()
     {
         // Configures where the render pass should be injected.
-        //m_ScriptablePass.renderPassEvent = RenderPassEvent.AfterRenderingOpaques;
         heightRT = new RenderTexture(textureWidth, textureHeight, 0, RenderTextureFormat.RFloat);
         heightRT.enableRandomWrite = true;
         heightRT.Create();
 
         pass = new HeightmapRenderPass(heightmapMaterial, heightRT);
+        pass.renderPassEvent = RenderPassEvent.AfterRendering;
     }
 
     // Here you can inject one or multiple render passes in the renderer.
