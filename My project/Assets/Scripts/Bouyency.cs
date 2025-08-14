@@ -1,120 +1,156 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Unity.VisualScripting;
 using UnityEngine;
-using Unity.Collections;
-using static Unity.Mathematics.math;
 using UnityEngine.Rendering;
-using System.IO;
-using System;
-using UnityEngine.Experimental.Rendering;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.UIElements;
-
+using UnityEngine.UI;
 
 public class Bouyency : MonoBehaviour
 {
-    public ComputeShader computeShader;
-    public RenderTexture heightMapRT;
-    private int kernel;
-    private ComputeBuffer debugBuffer;
-    private float[] debugData = new float[1];
-    // Start is called before the first frame update 
-
-    private void Start()
+    [System.Serializable]
+    public struct Wave
     {
-        kernel = computeShader.FindKernel("CSMain");
-        
-
-        // 1 Element vom Typ float (4 Byte)
-        debugBuffer = new ComputeBuffer(1, sizeof(float));
-        SetWater setWater = gameObject.AddComponent<SetWater>();
-        SetupCalculations(setWater);
-        // Optional: an Compute Shader binden
-        computeShader.SetBuffer(kernel, "debugBuffer", debugBuffer);
-        debugBuffer.SetData(debugData);
-
-        heightMapRT = new RenderTexture(256, 256, 0);
-        heightMapRT.enableRandomWrite = true;
-        heightMapRT.graphicsFormat = UnityEngine.Experimental.Rendering.GraphicsFormat.R32G32B32A32_SFloat;
-        heightMapRT.Create();
-
-        computeShader.SetTexture(kernel, "Result", heightMapRT);
-        computeShader.Dispatch(kernel, heightMapRT.width / 8, heightMapRT.height / 8, 1);
-
-        // 1. Temporäre Texture2D erstellen
-        Texture2D tex = new Texture2D(heightMapRT.width, heightMapRT.height, TextureFormat.RGBA32, false);
-
-        // 2. RenderTexture aktiv setzen und Pixel lesen
-        RenderTexture currentRT = RenderTexture.active;
-        RenderTexture.active = heightMapRT;
-
-        tex.ReadPixels(new Rect(0, 0, heightMapRT.width, heightMapRT.height), 0, 0);
-        tex.Apply();
-
-        RenderTexture.active = currentRT;
-
-        // 3. In PNG konvertieren
-        byte[] pngData = tex.EncodeToPNG();
-
-        // 4. Speicherpfad bestimmen
-        string scriptPath = Application.dataPath; // Pfad zu Assets/
-        string savePath = Path.Combine(scriptPath, "RenderOutput.png");
-
-        // 5. Datei speichern
-        File.WriteAllBytes(savePath, pngData);
-
-        Debug.Log($"PNG gespeichert unter: {savePath}");
+        public Vector2 direction;
+        public float amplitude;
+        public float wavelength;
+        public float speed;
     }
 
-    private void SetupCalculations(SetWater setWater)
-    {
-        KeyValuePair<string, float>[] pairs =  setWater.GetPairs();
-        foreach (KeyValuePair<string, float> pair in pairs)
-        {
-            computeShader.SetFloat(pair.Key, pair.Value);
-        }
-        computeShader.SetFloats("_Speed", setWater.GetSpeed());
-        computeShader.SetVectorArray("_Direction", setWater.GetDirections());
-    }
-    private void Update()
-    {
-        computeShader.SetFloat("_Time", Time.time);
-        computeShader.SetFloat("_DeltaTime", Time.deltaTime);
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            kernel = computeShader.FindKernel("CSMain");
-            computeShader.Dispatch(kernel, 32, 32, 1);
-            debugBuffer.GetData(debugData);
+    public ComputeShader waterHeightShader;
+    public Material waterMaterial;
+    public Transform waterPlane;
+    public RawImage rawImage;
+    public GameManager gameManager;
+    public Rigidbody rb;
+    public Transform body;
+    public Vector2 planeSize;
+    public float test;
 
-            Debug.Log("Debugwert: " + debugData[0]);
-            debugBuffer.Release();
+    private Wave[] waves;
+
+    private ComputeBuffer waveBuffer;
+    private RenderTexture heightRT;
+    private bool readbackInProgress = false;
+
+    private void OnEnable()
+    {
+        gameManager.waveLoaded += saveWaveValues;
+    }
+
+    private void OnDisable()
+    {
+        gameManager.waveLoaded -= saveWaveValues;
+    }
+
+    void Start()
+    {
+        heightRT = new RenderTexture(256, 256, 0, RenderTextureFormat.RFloat);
+        heightRT.enableRandomWrite = true;
+        heightRT.Create();
+        saveWaveValues();
+    }
+
+    void Update()
+    {
+        DispatchComputeShader();
+        RequestHeightData();
+        if (!rawImage) return;
+        rawImage.texture = heightRT;
+    }
+
+    // just a helper to not type all the wave values manually
+    private void saveWaveValues()
+    {
+        getWaves();
+        var stride = sizeof(float) * 5; // 2 for direction, 1 for amp, 1 for wave, 1 for speed
+        waveBuffer = new ComputeBuffer(waves.Length, stride);
+    }
+
+    private void getWaves()
+    {
+        GameManager.Wave[] currentWaves = gameManager.waves;
+        waves = new Wave[currentWaves.Length];
+        for (int i = 0; i < gameManager.waves.Length; i++)
+        {
+            waves[i].direction = currentWaves[i].direction;
+            waves[i].amplitude = currentWaves[i].amplitude;
+            waves[i].wavelength = currentWaves[i].wavelength;
+            waves[i].speed = currentWaves[i].speed;
         }
     }
 
-    public void SaveRenderTextureAsPNG()
+    void DispatchComputeShader()
     {
-        // 1. Temporäre Texture2D erstellen
-        Texture2D tex = new Texture2D(heightMapRT.width, heightMapRT.height, TextureFormat.RGBA32, false);
+        int kernel = waterHeightShader.FindKernel("CSMain");
+        waterHeightShader.SetFloat("_Time", Time.time);
+        waveBuffer.SetData(waves);
+        waterMaterial.SetBuffer("_Waves", waveBuffer);
+        waterHeightShader.SetBuffer(kernel, "_Waves", waveBuffer);
 
-        // 2. RenderTexture aktiv setzen und Pixel lesen
-        RenderTexture currentRT = RenderTexture.active;
-        RenderTexture.active = heightMapRT;
 
-        tex.ReadPixels(new Rect(0, 0, heightMapRT.width, heightMapRT.height), 0, 0);
-        tex.Apply();
+        waterHeightShader.SetTexture(kernel, "Result", heightRT);
+        waterHeightShader.SetFloat("_TextureSize", heightRT.width);
+        waterHeightShader.SetVector("_PlaneSize", planeSize);
+        waterHeightShader.Dispatch(kernel, heightRT.width / 8, heightRT.height / 8, 1);
+    }
 
-        RenderTexture.active = currentRT;
+    private void RequestHeightData()
+    {
+        if (readbackInProgress) return;
 
-        // 3. In PNG konvertieren
-        byte[] pngData = tex.EncodeToPNG();
+        //Vector3 samplePos = waterPlane.InverseTransformPoint(transform.position);
+        Vector3 samplePos = transform.position;
 
-        // 4. Speicherpfad bestimmen
-        string scriptPath = Application.dataPath; // Pfad zu Assets/
-        string savePath = Path.Combine(scriptPath, "RenderOutput.png");
+        // Convert world position to UV
+        var uv_x = (samplePos.x / planeSize.x) + 0.5f;
+        var uv_y = (samplePos.z / planeSize.y) + 0.5f;
 
-        // 5. Datei speichern
-        File.WriteAllBytes(savePath, pngData);
+        if (uv_x < 0 || uv_x > 1 || uv_y < 0 || uv_y > 1)
+        {
+            //samplePos = waterPlane.InverseTransformPoint(transform.position);
+            return;
+        }// Outside the water
 
-        Debug.Log($"PNG gespeichert unter: {savePath}");
+        readbackInProgress = true;
+        var xPixel = (int)(uv_x * heightRT.width);
+        var yPixel = (int)(uv_y * heightRT.height);
+
+        AsyncGPUReadback.Request(heightRT, 0, xPixel, 1, yPixel, 1, 0, 1, OnReadbackComplete);
+
+    }
+
+    private void OnReadbackComplete(AsyncGPUReadbackRequest request)
+    {
+        // this check prevents error when exiting playmode
+        if (this == null) return;
+        if (request.hasError) return;
+
+        readbackInProgress = false;
+
+        var data = request.GetData<float>();
+        var waterHeight = data[0];
+        var newPos = transform.position;
+        waterHeight = waterPlane.position.y + waterHeight;
+        if (rb == null || body == null)
+        {
+
+            newPos.y = waterHeight;
+            transform.position = newPos;
+        }
+        else
+        {
+            float oceanFluidDensity = test;
+            float depth = data[0] - transform.GetLowestPoint<BoxCollider>(); // surface of the ocean - current position of the body
+            float submersion = Mathf.Clamp01(depth / body.localScale.y); // How much of the body is under water
+            Debug.Log(waterHeight);
+            float displacedVolume = rb.mass * submersion;
+
+            Vector3 force = Vector3.up * oceanFluidDensity * displacedVolume * Physics.gravity.magnitude;
+            rb.AddForce(force, ForceMode.Force);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (heightRT != null) heightRT.Release();
+        waveBuffer?.Release();
     }
 }
