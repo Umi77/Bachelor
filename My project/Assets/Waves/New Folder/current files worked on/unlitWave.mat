@@ -97,6 +97,7 @@ Material:
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Ambient: 1
+    - _AmbientScatter: 2.67
     - _Amplitude: 16.54
     - _Amplitude_1: -0.6
     - _Amplitude_2: 2
@@ -104,6 +105,7 @@ Material:
     - _Amplitude_Amplifier: 0.89
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
+    - _BubbleDensity: 0.5
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -122,7 +124,10 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _HightScatter: 6.33
+    - _LCLScatter: 1.01
     - _Metallic: 0
+    - _NormalScatter: 0.00000001
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _Power: 1320.2
@@ -165,8 +170,12 @@ Material:
     - _Wavelength_Amplifier: 1.17
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _alphaX: 0.2
+    - _alphaY: 0.6
     - _amp_amp: 0.82
+    - _anisotropy: 0.6
     - _inverter: -0.12
+    - _roughness: 0.2
     - _wave_amp: 1.18
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}

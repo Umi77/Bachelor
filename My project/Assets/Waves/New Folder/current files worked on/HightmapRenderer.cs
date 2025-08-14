@@ -26,11 +26,16 @@ public class HeightmapRenderer : ScriptableRendererFeature
         {
             CommandBuffer cmd = CommandBufferPool.Get("Render Heightmap");
 
-            cmd.SetRenderTarget(outputTexture);
-            cmd.ClearRenderTarget(true, true, Color.black);
-            cmd.DrawMesh(fullScreenQuad, Matrix4x4.identity, heightMaterial);
+            using (new ProfilingScope(cmd, new ProfilingSampler("Hightmap Generation")))
+            {
+                cmd.SetRenderTarget(outputTexture);
+                cmd.ClearRenderTarget(true, true, Color.black);
+                cmd.DrawMesh(fullScreenQuad, Matrix4x4.identity, heightMaterial);
+            }
 
             context.ExecuteCommandBuffer(cmd);
+            cmd.Clear();
+
             CommandBufferPool.Release(cmd);
         }
 
