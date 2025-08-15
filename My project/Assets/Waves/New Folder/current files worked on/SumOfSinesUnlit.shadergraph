@@ -3714,7 +3714,7 @@
     "m_Title": "Space Refrlection",
     "m_Position": {
         "x": -313.0,
-        "y": 2466.999755859375
+        "y": 2467.0
     }
 }
 
@@ -4138,7 +4138,7 @@
     "m_ObjectId": "2dc5655cf06a44949093d1885828382d",
     "m_Title": "Lambertion Diffuse",
     "m_Position": {
-        "x": 12.99993896484375,
+        "x": 13.0,
         "y": 773.0
     }
 }
@@ -10958,7 +10958,7 @@
     "m_ObjectId": "b59245f0cc49401ea9274496320144e6",
     "m_Title": "Ambient Lighting",
     "m_Position": {
-        "x": 1093.0001220703125,
+        "x": 1093.0,
         "y": 426.0
     }
 }
@@ -11605,7 +11605,7 @@
     "m_ObjectId": "c0b030b1d3974892a1521a412f04dd84",
     "m_Title": "Schlick Fresnel",
     "m_Position": {
-        "x": -61.00006103515625,
+        "x": -61.0,
         "y": 1299.0
     }
 }
@@ -14286,7 +14286,7 @@
     "m_Title": "Blinn Phong Specular",
     "m_Position": {
         "x": -254.0,
-        "y": 1649.999755859375
+        "y": 1650.0
     }
 }
 

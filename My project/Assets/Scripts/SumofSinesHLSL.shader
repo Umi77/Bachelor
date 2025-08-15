@@ -8,7 +8,13 @@
         _SpecNormalStrength ("Specular Normal Strength", float) = 1
         _SpecShininess ("Shininess", float) = 1
         _Diffuse ("Diffuse Amplifier", float) = 1
-
+        _WaterScatterColor ("Water Scatter Color", Color) = (1, 1, 1, 1)
+        _AirBubblesColor ("Air Bubbles Color", Color) = (1, 1, 1, 1)
+        _HeightScatter ("Height Scatter", float) = 6.33
+        _NormalScatter ("Normal Scatter", float) = 0.00001
+        _LCLScatter ("LCL Scatter", float) = 1
+        _AmbientScatter ("Ambient Scatter", float) = 2.6
+        _BubbleDensity ("Bubble Density", float) = 0.5
     }
     SubShader
     {
@@ -37,9 +43,16 @@
 
             float4 _Color;
             float4 _SpecReflectance;
+            float4 _WaterScatterColor;
+            float4 _AirBubblesColor;
             float _SpecNormalStrength;
             float _SpecShininess;
             float _Diffuse;
+            float _HeightScatter;
+            float _NormalScatter;
+            float _LCLScatter;
+            float _AmbientScatter;
+            float _BubbleDensity;
 
             #define MAX_WAVES 355
 
@@ -69,7 +82,8 @@
                 float3 tangent = float3(1, 0, 0);
                 float3 binormal = float3(0, 0, 1);
                 
-                uint count, stride;
+                uint count;
+                uint stride;
                 _Waves.GetDimensions(count, stride);
 
                 count = min(count, MAX_WAVES);
@@ -109,7 +123,69 @@
                 //float3 normView = normalize(GetViewForwardDir());
                 float3 normLight = normalize(mainLight.direction);
                 float3 normNormal = normalize(IN.worldNormal);
+                float3 halfNormal = normalize(normLight + normView);
 
+                //Light Scattering
+                float heightReflectance = _HeightScatter * max(0, IN.worldPos.y) * pow(max(0, dot(normLight,-normNormal)), 4);
+                heightReflectance = heightReflectance * pow((0.5 - 0.5 * dot(normLight, halfNormal)), 3);
+
+                float normalReflectance = _NormalScatter * pow(max(0, dot(normView, halfNormal)), 2);
+
+                float lclScatter = _LCLScatter * max(dot(normLight, halfNormal), 0);
+
+                float ambientScatter = _AmbientScatter * _BubbleDensity;
+
+                // Smith's microfacet shadowing
+                //Step 1
+                float cosTheta = dot(normNormal, normLight);
+                
+                //Step 2
+                float tanTheta = pow(1 - pow(cosTheta, 2) / cosTheta, 0.5);
+                
+                //Step 3
+                float3 pointTangent;
+                
+                if (IN.worldNormal.z != 0) 
+                {
+                    pointTangent = float3 (1,1, -(IN.worldNormal.x + IN.worldNormal.y) / IN.worldNormal.z);
+                }
+                else 
+                {
+                    pointTangent = float3 (1, -IN.worldNormal.x / IN.worldNormal.y, 1);
+                }
+                
+                //Step 4
+                float3 pointBitangent = cross(IN.worldNormal, pointTangent);
+                
+                //Step 5
+                float3 omega = mainLight.direction;
+                float omegaT = dot(omega, pointTangent);
+                float omegaB = dot(omega, pointBitangent);
+                float cosPhi = pow(omegaT, 2) / pow(pow(omegaT, 2) + pow(omegaB, 2), 0.5);
+                float sinPhi = pow(omegaB, 2) / pow(pow(omegaT, 2) + pow(omegaB, 2), 0.5);
+                
+                //Step 6
+                float roughness = 0.2;
+                float anisotropy = 0.6;
+
+                //Step 7
+                float alphaX = 0.2;
+                float alphaY = 0.6;
+
+                float alpha = pow(pow(alphaX, 2) * pow(cosPhi, 2) + pow(alphaY, 2) * pow(sinPhi, 2), 0.5);
+
+                //Step 8
+                float a = max(1 / alpha * tanTheta, 0);
+
+                //Step 9
+                if (a < 1.6) 
+                {
+                    a = (1 - 1.259 * a + 0.396 * pow(a, 2)) / (3.535 * a * 2.181 * pow(a, 2));
+                }
+                else 
+                {
+                    a = 0;
+                }
 
                 // Lambertion Diffuse
                 float lambert = saturate(dot(IN.worldNormal, mainLight.direction));
@@ -130,9 +206,13 @@
                 float3 diffuseColor = mainLight.color * (lambert * _Diffuse);
                 float3 reflectColor = _Skybox.SampleLevel(sampler_Skybox, reflecDir, 1.0);
 
+                //Light Scatter Colors
+                float3 lightScatter = (heightReflectance + normalReflectance) * _WaterScatterColor * mainLight.color * 1 / (1 + a);
+                lightScatter = lclScatter * _WaterScatterColor * mainLight.color + ambientScatter * _BubbleDensity * mainLight.color;
+
                 // Assemble of Colors
                 float3 pixelColor = blinnColor + diffuseColor + _Color.rgb;
-                return float4(pixelColor, 1.0);
+                return float4(lightScatter, 1.0);
             }
             ENDHLSL
         }
