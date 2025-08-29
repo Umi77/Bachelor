@@ -559,6 +559,20 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+                    "m_Id": "08c2a659aa034b6fa36c436eb7c7fa04"
+                },
+                "m_SlotId": 2
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "fbec1e587c0749018258ef5bca631d2c"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
                     "m_Id": "0a4ce5d7617d4cb5b418870585242d35"
                 },
                 "m_SlotId": 2
@@ -1679,20 +1693,6 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
-                    "m_Id": "a14e90a613bc432f9f7c26fb5b785b89"
-                },
-                "m_SlotId": 2
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "e0897734e96047648927403b6ba78a59"
-                },
-                "m_SlotId": 1
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
                     "m_Id": "a2356a2dca4f43fa9f1beb4ca4c2734b"
                 },
                 "m_SlotId": 0
@@ -1730,6 +1730,34 @@
                     "m_Id": "f1cbdaa0b62c4e7e850b57b01db86879"
                 },
                 "m_SlotId": -40056051
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "af397e18a0ee477fb26dc3f338d40558"
+                },
+                "m_SlotId": 2
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "e88294bfa51f4ca4a00a2472888f2b31"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "b047768be46e4824b487342c36a5f5c0"
+                },
+                "m_SlotId": 2
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "e0897734e96047648927403b6ba78a59"
+                },
+                "m_SlotId": 1
             }
         },
         {
@@ -2085,20 +2113,6 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
-                    "m_Id": "e0897734e96047648927403b6ba78a59"
-                },
-                "m_SlotId": 2
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "fbec1e587c0749018258ef5bca631d2c"
-                },
-                "m_SlotId": 0
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
                     "m_Id": "e1c6ce231b154a8bb2b963010d67e88a"
                 },
                 "m_SlotId": 2
@@ -2302,20 +2316,6 @@
             "m_InputSlot": {
                 "m_Node": {
                     "m_Id": "597f7526356546d3a6167887c79f928e"
-                },
-                "m_SlotId": 0
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
-                    "m_Id": "f1cbdaa0b62c4e7e850b57b01db86879"
-                },
-                "m_SlotId": 2
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "e88294bfa51f4ca4a00a2472888f2b31"
                 },
                 "m_SlotId": 0
             }
@@ -3120,7 +3120,7 @@
     "m_ObjectId": "1508bfbe598e44ae895f13eaa7ac689b",
     "m_Title": "Normal calculation for Fragment/Pixel Shader",
     "m_Position": {
-        "x": -1564.66650390625,
+        "x": -1564.6666259765625,
         "y": 376.0000305175781
     }
 }
@@ -3764,8 +3764,8 @@
     "m_ObjectId": "2570f3a6154847f98ab454366e8761a8",
     "m_Title": "Space Refrlection",
     "m_Position": {
-        "x": -313.3333435058594,
-        "y": 2467.3330078125
+        "x": -313.333251953125,
+        "y": 2467.333251953125
     }
 }
 
@@ -4189,7 +4189,7 @@
     "m_ObjectId": "2dc5655cf06a44949093d1885828382d",
     "m_Title": "Lambertion Diffuse",
     "m_Position": {
-        "x": 12.666664123535157,
+        "x": 12.666748046875,
         "y": 773.3333129882813
     }
 }
@@ -4614,9 +4614,9 @@
     },
     "m_Color": {
         "color": {
-            "r": 1.0,
-            "g": 1.0,
-            "b": 1.0,
+            "r": 0.0,
+            "g": 0.008708332665264607,
+            "b": 0.16981130838394166,
             "a": 1.0
         },
         "mode": 1
@@ -11208,7 +11208,7 @@
     "m_ObjectId": "b59245f0cc49401ea9274496320144e6",
     "m_Title": "Ambient Lighting",
     "m_Position": {
-        "x": 1092.6666259765625,
+        "x": 1092.666259765625,
         "y": 426.0
     }
 }
@@ -11879,7 +11879,7 @@
     "m_ObjectId": "c0b030b1d3974892a1521a412f04dd84",
     "m_Title": "Schlick Fresnel",
     "m_Position": {
-        "x": -61.33333206176758,
+        "x": -61.333251953125,
         "y": 1299.3333740234375
     }
 }
@@ -14691,8 +14691,8 @@
     "m_ObjectId": "f23c144ab7cb434aa5cdc49c73c3d0aa",
     "m_Title": "Blinn Phong Specular",
     "m_Position": {
-        "x": -254.6666717529297,
-        "y": 1650.000244140625
+        "x": -254.66650390625,
+        "y": 1650.0001220703125
     }
 }
 

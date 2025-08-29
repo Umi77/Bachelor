@@ -36,14 +36,14 @@ Material:
     - _AmbientScatter: 2.6
     - _Amplitude: 1
     - _BubbleDensity: 0.5
-    - _Diffuse: 0.16
+    - _Diffuse: 0.12
     - _HeightScatter: 6.33
     - _LCLScatter: 1
     - _NormalScatter: 0.00001
     - _Shininess: 0.5
     - _Skybox: 0
-    - _SpecNormalStrength: 1.42
-    - _SpecShininess: 43.22
+    - _SpecNormalStrength: 3.94
+    - _SpecShininess: 41.08
     - _Speed: 1
     - _Wavelength: 10
     m_Colors:

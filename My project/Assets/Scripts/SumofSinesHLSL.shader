@@ -226,7 +226,7 @@
                 //float blinnPhongSpecular = pow(saturate(dot(specNormal, specHalfVector)), _SpecShininess) ;
                 
                 // Space Reflection
-                float3 reflecDir = dot(normView, normNormal) * (normNormal * 2) - normView;
+                float3 reflecDir = dot(normView, normNormal1) * (normNormal1 * 2) - normView;
 
                 // Colors
                 float3 blinnColor = blinnPhongSpecular * _SpecReflectance * mainLight.color;

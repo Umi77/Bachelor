@@ -50,7 +50,6 @@ public class OceanBody : MonoBehaviour
         {
             sum += FaceNormalWeighted(bouyencies[0 + i + i].position, bouyencies[1].position, bouyencies[2 + i].position);
         }
-        sum = sum.normalized;
         if (sum.sqrMagnitude > 0 && body.up.sqrMagnitude > 0f)
         {
             Quaternion rotation = Quaternion.FromToRotation(body.up, sum);
@@ -71,6 +70,6 @@ public class OceanBody : MonoBehaviour
     private Vector3 FaceNormalWeighted(Vector3 a, Vector3 b, Vector3 c)
     {
         // Unnormalisiert: Richtung * (2 * Dreiecksfläche)
-        return Vector3.Cross(b - a, c - a);
+        return Vector3.Cross(b - a, c - a).normalized;
     }
 }

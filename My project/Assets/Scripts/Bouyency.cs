@@ -81,6 +81,7 @@ public class Bouyency : MonoBehaviour
     {
         int kernel = waterHeightShader.FindKernel("CSMain");
         waterHeightShader.SetFloat("_Time", Time.time);
+        waterHeightShader.SetFloat("_DeltaTime", Time.deltaTime);
         waveBuffer.SetData(waves);
         waterMaterial.SetBuffer("_Waves", waveBuffer);
         waterHeightShader.SetBuffer(kernel, "_Waves", waveBuffer);
@@ -95,8 +96,6 @@ public class Bouyency : MonoBehaviour
     private void RequestHeightData()
     {
         if (readbackInProgress) return;
-
-        //Vector3 samplePos = waterPlane.InverseTransformPoint(transform.position);
         Vector3 samplePos = transform.position;
 
         // Convert world position to UV
@@ -105,7 +104,6 @@ public class Bouyency : MonoBehaviour
 
         if (uv_x < 0 || uv_x > 1 || uv_y < 0 || uv_y > 1)
         {
-            //samplePos = waterPlane.InverseTransformPoint(transform.position);
             return;
         }// Outside the water
 
