@@ -53,6 +53,8 @@
             float _LCLScatter;
             float _AmbientScatter;
             float _BubbleDensity;
+            float3 tangent;
+            float3 binormal;
 
             #define MAX_WAVES 355
 
@@ -72,6 +74,24 @@
                 StructuredBuffer<Wave> _Waves;
             CBUFFER_END
 
+            void CalculateNormal(float3 worldPos, float2 normDir, float frequency, float phase, Wave wave)
+            {
+                float cos_val = cos(dot(normDir, worldPos.xz) * frequency + _Time.y * phase);
+                float derivative = frequency * wave.amplitude * cos_val;
+                tangent.y += derivative * normDir.x;
+                binormal.y += derivative * normDir.y;
+            }
+
+            float3 DomainWarp(float3 worldPos, float2 normDir, float frequency, float phase, Wave wave)
+            {
+                float lastFrame = _Time.y - unity_DeltaTime.x;
+                float cos_val = cos(dot(normDir, worldPos.xz) * frequency + lastFrame * phase);
+                float derivative = frequency * wave.amplitude * cos_val;
+                float ddx = derivative * normDir.x;
+                float ddy = derivative * normDir.y;
+                return float3 (ddx, 0, ddy);
+            }
+
             fragIn vert(Attributes IN)
             {
                 fragIn OUT;
@@ -79,8 +99,8 @@
                 float3 worldPos = TransformObjectToWorld(IN.positionOS.xyz);
                 
                 float totalHeight = 0;
-                float3 tangent = float3(1, 0, 0);
-                float3 binormal = float3(0, 0, 1);
+                tangent = float3(1, 0, 0);
+                binormal = float3(0, 0, 1);
                 
                 uint count;
                 uint stride;
@@ -95,14 +115,10 @@
                     float frequency = 6.28318 / wave.wavelength;
                     float phase = frequency * wave.speed;
                     float2 normDir = normalize(wave.direction);
-                    float sin_val = sin(dot(normDir, worldPos.xz) * frequency + _Time.y * phase);
-                    float cos_val = cos(dot(normDir, worldPos.xz) * frequency + _Time.y * phase);
-                    
-                    totalHeight += wave.amplitude * sin_val; // * (pow(2.71828, sin_val) - 1);
-
-                    float derivative = frequency * wave.amplitude * cos_val;
-                    tangent.y += derivative * normDir.x;
-                    binormal.y += derivative * normDir.y;
+                    float3 previousePosition = DomainWarp(worldPos, normDir, frequency, phase, wave);
+                    float sin_val = sin(dot(normDir, worldPos.xz + previousePosition.xz) * frequency + _Time.y * phase);
+                    totalHeight += wave.amplitude * (pow(2.71828, sin_val) - 1);
+                    CalculateNormal(worldPos, normDir, frequency, phase, wave);
                 }
                 
                 worldPos.y += totalHeight;
@@ -116,13 +132,24 @@
 
             float4 frag(fragIn IN) : SV_Target
             {
+                // Eingaben: World-Space Position und evtl. ursprüngliche Normalen
+                float3 objNormal = TransformWorldToObject(IN.worldNormal) + IN.worldPos; // Objekt-Normale (Transformiert falls nötig)
+
+                // --- Ableitungen ---
+                float3 dx = ddx(objNormal);
+                float3 dy = ddy(objNormal);
+
+                // --- Kreuzprodukt der Ableitungen => Flächen-Normale ---
+                float3 pixNormal = cross(dx, dy);
+                float3 normNormal = normalize(pixNormal);
+
                 Light mainLight = GetMainLight();
                 float3 normView = normalize(_WorldSpaceCameraPos - IN.worldPos);
                 //float3 normView = GetCameraPositionWS() - TransformObjectToWorld(IN.positionHCS.xyz);
                 //float3 normView = normalize(viewDir);
                 //float3 normView = normalize(GetViewForwardDir());
                 float3 normLight = normalize(mainLight.direction);
-                float3 normNormal = normalize(IN.worldNormal);
+                float3 normNormal1 = normalize(IN.worldNormal);
                 float3 halfNormal = normalize(normLight + normView);
 
                 //Light Scattering
@@ -188,10 +215,10 @@
                 }
 
                 // Lambertion Diffuse
-                float lambert = saturate(dot(IN.worldNormal, mainLight.direction));
+                float lambert = max(0, dot(normNormal1, normLight));
 
                 // Blinn Phong Specular Lighting
-                float schlickFresnel = pow(1 - dot(normNormal, normView), 5); // The closer the cam the lower the reflectance
+                float schlickFresnel = pow(1 - dot(normNormal1, normView), 5); // The closer the cam the lower the reflectance
                 
                 float3 specNormal = normalize(float3(IN.worldNormal.x * _SpecNormalStrength, IN.worldNormal.y, IN.worldNormal.z * _SpecNormalStrength));
                 float3 specHalfVector = normalize(normLight + normView); // Doppel normalize?
@@ -211,8 +238,8 @@
                 lightScatter = lclScatter * _WaterScatterColor * mainLight.color + ambientScatter * _BubbleDensity * mainLight.color;
 
                 // Assemble of Colors
-                float3 pixelColor = blinnColor + diffuseColor + _Color.rgb;
-                return float4(lightScatter, 1.0);
+                float3 pixelColor = reflectColor + blinnColor + diffuseColor + _Color.rgb;
+                return float4(pixelColor, 1.0);
             }
             ENDHLSL
         }

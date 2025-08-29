@@ -906,7 +906,7 @@
     "m_ObjectId": "0268a0f7110144daa0ddfec10da58774",
     "m_Title": "phase-constant",
     "m_Position": {
-        "x": -4028.0,
+        "x": -4028.666748046875,
         "y": -602.0
     }
 }
@@ -4991,8 +4991,8 @@
     "m_ObjectId": "c2e6ed92ce3f42a0ad00a38892c00c23",
     "m_Title": "phase-constant",
     "m_Position": {
-        "x": -2270.0,
-        "y": -103.0
+        "x": -2270.666748046875,
+        "y": -102.66659545898438
     }
 }
 
@@ -5293,7 +5293,7 @@
     "m_ObjectId": "daf521c1bdf643a6ab98322c113be097",
     "m_Title": "frequency",
     "m_Position": {
-        "x": -1836.0,
+        "x": -1836.6666259765625,
         "y": -458.0
     }
 }

@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Skybox:
-        m_Texture: {fileID: 8900000, guid: 354036e57ae357148aed267204ce73a7, type: 3}
+        m_Texture: {fileID: 8900000, guid: a3de28b69b48944438c87668bd722ae7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Skyboxx:
@@ -36,21 +36,21 @@ Material:
     - _AmbientScatter: 2.6
     - _Amplitude: 1
     - _BubbleDensity: 0.5
-    - _Diffuse: 0.2
+    - _Diffuse: 0.16
     - _HeightScatter: 6.33
     - _LCLScatter: 1
     - _NormalScatter: 0.00001
     - _Shininess: 0.5
     - _Skybox: 0
-    - _SpecNormalStrength: 0.03
-    - _SpecShininess: 2.22
+    - _SpecNormalStrength: 1.42
+    - _SpecShininess: 43.22
     - _Speed: 1
     - _Wavelength: 10
     m_Colors:
-    - _AirBubblesColor: {r: 0.19999999, g: 0.42352942, b: 0.9921569, a: 0}
+    - _AirBubblesColor: {r: 0.99215686, g: 0.21252328, b: 0.19999997, a: 0}
     - _BaseColor: {r: 0.09999997, g: 0.29999998, b: 0.5, a: 1}
-    - _Color: {r: 0.19215688, g: 0.25882354, b: 0.43529415, a: 1}
+    - _Color: {r: 0, g: 0.096054874, b: 0.35220122, a: 1}
     - _Direction: {r: 1, g: 0, b: 0, a: 0}
-    - _SpecReflectance: {r: 0.9622642, g: 0.9359459, b: 0.503827, a: 0}
+    - _SpecReflectance: {r: 1, g: 0.2076374, b: 0, a: 0}
     - _WaterScatterColor: {r: 0, g: 0.47843134, b: 1, a: 0}
   m_BuildTextureStacks: []

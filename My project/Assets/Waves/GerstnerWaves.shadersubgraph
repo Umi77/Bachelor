@@ -1066,8 +1066,8 @@
     "m_ObjectId": "0ffe77f4395d49f1b0b6dcb547924978",
     "m_Title": "X Coordinate",
     "m_Position": {
-        "x": -1679.0,
-        "y": -243.0
+        "x": -1679.33349609375,
+        "y": -242.66665649414063
     }
 }
 
@@ -1969,8 +1969,8 @@
     "m_ObjectId": "48aeff1e00434e818630ed5d48218336",
     "m_Title": "Z Coordinate",
     "m_Position": {
-        "x": -1679.0,
-        "y": 851.0
+        "x": -1679.33349609375,
+        "y": 851.3333740234375
     }
 }
 
@@ -3603,7 +3603,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.0,
+    "m_Value": 5.349999904632568,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -4410,8 +4410,8 @@
     "m_ObjectId": "cd668b21720647bbb2282e69f48ac857",
     "m_Title": "Y Coordinate",
     "m_Position": {
-        "x": -915.0,
-        "y": 515.0
+        "x": -915.3333740234375,
+        "y": 515.333251953125
     }
 }
 
