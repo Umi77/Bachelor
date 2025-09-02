@@ -111,7 +111,7 @@
                 for (int i = 0; i < count; i++)
                 {
                     Wave wave = _Waves[i];
-                    // this logic is the same as in compute shader
+                    // In der physik wird 2*pi statt nur 2 verwendet. Beides funktioniert und wähle daher nach persönlicher Preferenz
                     float frequency = 6.28318 / wave.wavelength;
                     float phase = frequency * wave.speed;
                     float2 normDir = normalize(wave.direction);
